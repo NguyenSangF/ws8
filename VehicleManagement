@@ -1,0 +1,68 @@
+public class VehicleManagement implements IVehicle {
+
+    ArrayList<Bike> list = new ArrayList<Bike>();
+
+    @Override
+    public void addVehicle(Vehicle b) {
+
+        list.add((Bike) b);
+    }
+
+    @Override
+    public Vehicle findVehicleById(int id) {
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getVehicleID() == id) {
+                return list.get(i);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void updateVehicle(Vehicle b) {
+        String Color, SupplierName;
+        int Warranty, VehicleID;
+        String VehicleName;
+        double Price;
+        int Quantity;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Id");
+        VehicleID = sc.nextInt();
+        System.out.println("Enter Name");
+        VehicleName = sc.nextLine();
+        System.out.println("Price");
+        Price = sc.nextDouble();
+        System.out.println("Quantity");
+        Quantity = sc.nextInt();
+        System.out.println("Color");
+        Color = sc.nextLine();
+        System.out.println("SupplierName");
+        SupplierName = sc.next();
+        System.out.println("Warranty");
+        Warranty = sc.nextInt();
+        b.setVehicleID(VehicleID);
+        b.setVehicleName(VehicleName);
+        b.setPrice(Price);
+        b.setQuantity(Quantity);
+        Bike bk = (Bike) b;
+        bk.setColor(Color);
+        bk.setSupplierName(SupplierName);
+        bk.setWarranty(Warranty);
+
+    }
+
+    @Override
+    public void removeVehicle(Vehicle b) {
+        list.remove(b);
+    }
+
+    public void PrintList() {
+        Collections.sort(list);
+        for (Vehicle s : list) {
+            System.out.println(s.toString());
+        }
+
+    }
+
+}
