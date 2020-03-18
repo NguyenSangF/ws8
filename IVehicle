@@ -1,0 +1,6 @@
+public interface IVehicle {
+    void addVehicle(Vehicle b);
+    Vehicle findVehicleById(int id);//tim theo id
+    void updateVehicle(Vehicle b);//update
+    void removeVehicle(Vehicle b);//xóa  
+}
