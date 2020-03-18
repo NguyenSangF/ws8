@@ -1,0 +1,54 @@
+public class Bike extends Vehicle {
+
+    String Color;
+    String SupplierName;
+    int Warranty;
+
+    public Bike(String Color, String SupplierName, int Warranty, int VehicleID, String VehicleName, double Price, int Quantity) {
+        super(VehicleID, VehicleName, Price, Quantity);
+        this.Color = Color;
+        this.SupplierName = SupplierName;
+        this.Warranty = Warranty;
+    }
+
+    public String getColor() {
+        return Color;
+    }
+
+    public void setColor(String Color) {
+        this.Color = Color;
+    }
+
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
+
+    public int getWarranty() {
+        return Warranty;
+    }
+
+    public void setWarranty(int Warranty) {
+        this.Warranty = Warranty;
+    }
+
+
+    @Override
+    public void PrintVehicle() {
+        System.out.println("VehicleID"+VehicleID);
+        System.out.println("VehicleName"+VehicleName);
+        System.out.println("Price"+Price);
+        System.out.println("Quantity"+Quantity);
+        System.out.println("Color"+Color);
+        System.out.println("SupplierName"+SupplierName);
+        System.out.println("Warranty"+Warranty);
+    }
+    public double salePrice(double rate) {
+        double SalePrice = Price * rate;
+        return SalePrice;
+    }
+    
+}
