@@ -1,0 +1,85 @@
+public abstract class Vehicle implements Comparable<Vehicle> {
+
+    //khai bao
+
+    protected int VehicleID;
+    protected String VehicleName;
+    protected double Price;
+    protected int Quantity;
+
+    public abstract void PrintVehicle();
+
+    public Vehicle(int VehicleID, String VehicleName, double Price, int Quantity) {
+        this.VehicleID = VehicleID;
+        this.VehicleName = VehicleName;
+        this.Price = Price;
+        this.Quantity = Quantity;
+    }
+    
+    
+    //ham  salePrice
+    
+    public double salePrice(double rate) {
+        double SalePrice = Price * rate;
+        return SalePrice;
+    }
+
+    //getter setter
+
+    public int getVehicleID() {
+        return VehicleID;
+    }
+
+    public void setVehicleID(int VehicleID) {
+        this.VehicleID = VehicleID;
+    }
+
+    public String getVehicleName() {
+        return VehicleName;
+    }
+
+    public void setVehicleName(String VehicleName) {
+        this.VehicleName = VehicleName;
+    }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(double Price) {
+        this.Price = Price;
+    }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int Quantity) {
+        this.Quantity = Quantity;
+    }
+
+    @Override
+    public String toString() {
+       return "VehicleID"+VehicleID+"VehicleName"+VehicleName+"Price"+Price+"Quantity"+Quantity;
+    }
+    
+//sort
+    public int compareTo(Vehicle o) {
+        int result = 0;
+        Vehicle v = (Vehicle) o;
+        if (Quantity < v.getQuantity()) {
+            result = 1;
+        } else if (Quantity == v.getQuantity()) {
+            if (VehicleName.compareTo(v.getVehicleName()) < 0) {
+                result = -1;
+            } else if (VehicleName.compareTo(v.getVehicleName()) == 0) {
+                result = 0;
+            }
+            result = 1;
+        } else {
+            result = -1;
+        }
+        return result;
+    }
+
+}
