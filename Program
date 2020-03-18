@@ -1,0 +1,72 @@
+
+    public static void main(String[] args) {
+        String Color, SupplierName;
+        int Warranty, VehicleID;
+        String VehicleName;
+        double Price;
+        int Quantity;
+        Scanner sc = new Scanner(System.in);
+        VehicleManagement ve = new VehicleManagement();
+        int choices;
+        do {
+            System.out.println("Chon");
+            System.out.println("1 Them");
+            System.out.println("2 Tim In");
+            System.out.println("3 Update");
+//            System.out.println("4 Remove");
+//            System.out.println("5 In");
+            choices = sc.nextInt();
+            switch (choices) {
+                case 1:
+                    System.out.println("Enter Id");
+                    VehicleID = sc.nextInt();
+                    System.out.println("Enter Name");
+                    sc.nextLine();
+                    VehicleName = sc.nextLine();
+                    System.out.println("Price");
+                    Price = sc.nextDouble();
+                    System.out.println("Quantity");
+                    Quantity = sc.nextInt();
+                    System.out.println("Color");
+                    sc.nextLine();
+                    Color = sc.nextLine();
+                    System.out.println("SupplierName");
+                    SupplierName = sc.next();
+                    System.out.println("Warranty");
+                    Warranty = sc.nextInt();
+
+                    Bike b = new Bike(Color, SupplierName, Warranty, VehicleID, VehicleName, Price, Quantity);
+                    ve.addVehicle(b);
+                    break;
+                case 2:
+                    System.out.println("Nhap id");
+                    int id = sc.nextInt();
+                    Vehicle pos = ve.findVehicleById(id);
+                    if (pos != null) {
+                        pos.PrintVehicle();
+                        System.out.println("rate");
+                        int rate = sc.nextInt();
+                        System.out.println("salePrice" + pos.salePrice(rate));
+                    }
+                    break;
+                case 3:
+                    System.out.println("Enter Id");
+                    int ID = sc.nextInt();
+                    Vehicle p = ve.findVehicleById(ID);
+                    if (p == null) {
+                        System.out.println("NOT FOUND");
+                    } else {
+                        ve.updateVehicle(p);
+                    }
+                    break;
+                case 5:
+                    ve.PrintList();
+                    break;
+                case 4:
+                    System.out.println("Nhap Vehicle ban can remove");
+//                    Vehicle v=sc.nextLine();
+//                    ve.removeVehicle();
+            }
+        } while (choices >= 1 && choices <= 4);
+    }
+}
